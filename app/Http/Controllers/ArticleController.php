@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Article;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +17,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        echo 'index';
+        $articles = Article::paginate(5);
+        return view('article.list', ['articles' => $articles]);
     }
 
     /**

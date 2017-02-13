@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Diary;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class DiaryController extends Controller
 {
@@ -16,7 +18,8 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        echo '日记';
+        $diaries = Diary::paginate(5);
+        return view('diary.list', ['diaries' => $diaries]);
     }
 
     /**

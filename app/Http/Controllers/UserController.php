@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -20,8 +21,27 @@ class UserController extends Controller
     {
         $email = $request->get('email');
         $password = $request->get('password');
-        $user = User::where()->find();
+        $user = User::where('email', '=', $email)->firstOrFail();
+        if($password == Crypt::decrypt($user->password)) {
+            session()->set('user', $user);
+            return redirect('/');
+        } else {
+            dd('login fail');
+        }
+    }
 
+    public function logout()
+    {
+        session()->set('user', null);
+        return redirect('/');
+    }
+
+    /**
+     * 个人中心
+     */
+    public function personal()
+    {
+        dd(session()->get('user'));
     }
 
 

@@ -11,6 +11,7 @@
     <link rel="icon" type="image/jpeg" href="/favicon.jpg">
     <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
 
 @section('my-css')
 @show

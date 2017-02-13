@@ -16,7 +16,7 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
-        echo $request->getRequestUri();
+        dd(session()->get('user')->id);
     }
 
     /**

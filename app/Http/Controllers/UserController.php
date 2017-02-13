@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,15 +10,20 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+
+    public function register()
     {
-        //
+
     }
+
+    public function login(Request $request)
+    {
+        $email = $request->get('email');
+        $password = $request->get('password');
+        $user = User::where()->find();
+
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -1,57 +1,30 @@
 @extends('basic')
-@section('my-css')
-    <link rel="stylesheet" href="/css/login.css">
-@endsection
+
+@section('title', 'HTBlog,一个简单易用的个人博客')
+@section('description', 'HTBlog,一个简单易用的个人博客')
+@section('keywords', 'HTBlog,一个简单易用的个人博客')
+
 @section('container')
     @include('includes.nav')
-    <div class="am-g">
-        <!-- LOGO -->
-        <div class="am-u-sm-12 am-text-center">
-            <img class="am-img-thumbnail am-radius" src="/i/favicon.jpg" style="height: 150px; margin-bottom: 20px;">
-        </div>
-        <!-- 注册框 -->
-        <div class="am-u-sm-11 am-u-sm-centered">
-            <form class="am-form">
-                <fieldset class="myapp-login-form am-form-set">
-                    <div class="am-form-group am-form-icon">
-                        <i class="am-icon-user"></i>
-                        <input type="text" class="myapp-login-input-text am-form-field" placeholder="请输入您的昵称">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-md-12 column">
+                <form role="form">
+                    <div class="form-group">
+                        <label for="inputNickname">昵称</label><input type="text" name="nickname" class="form-control" id="inputNickname" placeholder="请输入昵称" />
                     </div>
-                    <div class="am-form-group am-form-icon">
-                        <i class="am-icon-envelope"></i>
-                        <input type="text" class="myapp-login-input-text am-form-field" placeholder="请输入您的邮箱">
+                    <div class="form-group">
+                        <label for="inputEmail">邮箱</label><input type="email" name="email" class="form-control" id="inputEmail" placeholder="请输入邮箱" />
                     </div>
-                    <div class="am-form-group am-form-icon">
-                        <i class="am-icon-lock"></i>
-                        <input type="text" class="myapp-login-input-text am-form-field" placeholder="密码至少8个字符">
+                    <div class="form-group">
+                        <label for="inputPassword">密码</label><input type="password" name="password" class="form-control" id="inputPassword" placeholder="密码至少8个字符" />
                     </div>
-                    <div class="am-form-group am-form-icon">
-                        <i class="am-icon-lock"></i>
-                        <input type="text" class="myapp-login-input-text am-form-field" placeholder="请再次输入密码">
+                    <div class="form-group">
+                        <label for="inputPassword2">再次输入密码</label><input type="password" name="password_confirmation" class="form-control" id="inputPassword2" placeholder="请再次输入密码" />
                     </div>
-                </fieldset>
-                <button type="submit" class="myapp-login-form-submit am-btn am-btn-primary am-btn-block ">注 册</button>
-            </form>
-        </div>
-        <div class="am-text-center am-u-sm-11 am-u-sm-centered myapp-login-form-shortcut">
-            <hr class="myapp-login-form-hr"/>
-            <span class="myapp-login-form-hr-font">第三方登陆</span>
-        </div>
-
-        <div class="am-u-sm-12 am-text-center myapp-login-form-listico">
-            <div class="am-u-sm-4 am-text-center">
-                <i class="am-icon-btn am-primary am-icon-qq"></i>
-            </div>
-            <div class="am-u-sm-4 am-text-center">
-                <i class="am-icon-btn am-danger am-icon-weibo"></i>
-            </div>
-            <div class="am-u-sm-4 am-text-center">
-                <i class="am-icon-btn am-success am-icon-weixin"></i>
+                    <button type="submit" class="btn btn-block btn-primary">注册</button>
+                </form>
             </div>
         </div>
-
     </div>
-@section('my-js')
-    <script src="/js/login.js"></script>
-@endsection
 @endsection

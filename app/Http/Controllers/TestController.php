@@ -16,7 +16,7 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
-        dd($request->getUserInfo());
+        echo $request->getRequestUri();
     }
 
     /**

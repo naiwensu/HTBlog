@@ -23,6 +23,8 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::post('/login', 'UserController@login');
+
 Route::get('/blogger', function () {
     return view('blogger');
 });

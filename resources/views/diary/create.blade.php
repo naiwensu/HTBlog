@@ -28,11 +28,12 @@
                         <textarea name="content" id='diary' rows="5" placeholder="限150字"></textarea>
 
                     </div>
-                    <label>上传图片：</label><br/>
-                    <input type="hidden" name="picId" value="" id="thumbsId">
+                    <label>上传缩略图：</label><br/>
+                    <input type="hidden" name="uid" value="" id="thumbsId">
                     <div id="wrapper">
                         <div id="container">
                             <!--头部，相册选择和格式选择-->
+
                             <div id="uploader">
                                 <div class="queueList">
                                     <div id="dndArea" class="placeholder">
@@ -44,11 +45,9 @@
                                     <div class="progress">
                                         <span class="text">0%</span>
                                         <span class="percentage"></span>
-                                    </div>
-                                    <div class="info"></div>
+                                    </div><div class="info"></div>
                                     <div class="btns">
-                                        <div id="filePicker2"></div>
-                                        <div class="uploadBtn">开始上传</div>
+                                        <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
                                     </div>
                                 </div>
                             </div>

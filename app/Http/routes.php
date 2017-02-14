@@ -43,6 +43,16 @@ Route::get('/diary', function () {
 Route::resource('diary', 'DiaryController');
 
 /**
+ * 照片墙
+ */
+Route::resource('photo', 'PhotoController');
+
+/**
  * 测试
  */
 Route::get('/test', 'TestController@index');
+
+/**
+ * 站长统计
+ */
+Route::get('/statistics', 'StatisticsController@index');

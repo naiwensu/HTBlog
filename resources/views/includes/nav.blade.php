@@ -36,7 +36,14 @@
                                 <li><a href="/diary/manage">管理日记</a></li>
                             </ul>
                         </li>
-                        <li><a href="/photo">照片墙</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">照片墙 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/photo/create">添加照片</a></li>
+                                <li><a href="/photo/manage">管理照片</a></li>
+                            </ul>
+                        </li>
                     @else
                     @endif
                 @else

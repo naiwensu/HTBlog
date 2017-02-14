@@ -41,7 +41,7 @@ class UserController extends Controller
      */
     public function personal()
     {
-        dd(session()->get('user'));
+        echo 1;
     }
 
 

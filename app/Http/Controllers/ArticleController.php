@@ -31,6 +31,11 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
+    public function manage()
+    {
+        echo 1;
+    }
+
     /**
      * Store a newly created resource in storage.
      *

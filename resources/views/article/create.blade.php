@@ -9,7 +9,7 @@
 @endsection
 
 @section('container')
-    @include('includes.admin_nav')
+    @include('includes.nav')
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-12 column">

@@ -11,41 +11,38 @@
 |
 */
 
+/**
+ * 用户
+ */
 Route::get('/', 'ArticleController@index');
-
 Route::get('/register', function () {
     return view('register');
 });
-
 Route::get('/login', function () {
     return view('login');
 });
-
 Route::post('/login', 'UserController@login');
-
+Route::get('/personal', 'UserController@personal');
 Route::get('/logout', 'UserController@logout');
 
-Route::get('/personal', 'UserController@personal');
-
+/**
+ * 文章
+ */
 Route::get('/article', function () {
     return view('article');
 });
+Route::resource('article' , 'ArticleController');
+Route::get('/article/manage', 'ArticleController@manage');
 
+/**
+ * 日记
+ */
 Route::get('/diary', function () {
     return view('diary');
 });
-
-Route::get('/test', 'TestController@index');
-
-Route::resource('article' , 'ArticleController');
 Route::resource('diary', 'DiaryController');
 
-Route::get('admin', function () {
-    return view('admin.login');
-});
-
-Route::post('admin', 'AdminController@login');
-
-Route::get('admin/home', 'AdminController@home');
-
-Route::get('admin/show', 'AdminController@show');
+/**
+ * 测试
+ */
+Route::get('/test', 'TestController@index');

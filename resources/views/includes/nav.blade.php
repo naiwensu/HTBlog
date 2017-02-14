@@ -17,15 +17,30 @@
             <ul class="nav navbar-nav">
                 <li class="{{ Request::getRequestUri() == '/' ? 'active' : ''  }}"><a href="/">首页 <span class="sr-only">(current)</span></a>
                 </li>
-                <li><a href="/">文章</a></li>
                 @if(session()->get('user'))
                     @if(session()->get('user')->role < 10)
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">文章 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/article/create">添加文章</a></li>
+                                <li><a href="/article/manage">管理文章</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/statistics">站长统计</a></li>
-                        <li><a href="/diary">日记</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">日记 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/diary/create">添加日记</a></li>
+                                <li><a href="/diary/manage">管理日记</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/photo">照片墙</a></li>
                     @else
                     @endif
                 @else
+                    <li><a href="/">文章</a></li>
                 @endif
             </ul>
             <form class="navbar-form navbar-left">

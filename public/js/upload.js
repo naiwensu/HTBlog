@@ -147,14 +147,14 @@
             },
 
             formData: {
-                uid: timestamp + Math.random()
+                uid: timestamp + Math.random(),
             },
             dnd: '#dndArea',
             paste: '#uploader',
             swf: 'Uploader.swf',
             chunked: false,
             chunkSize: 512 * 1024,
-            server: 'ajax_upload',
+            server: '/fileUpload',
             // runtimeOrder: 'flash',
 
             // accept: {

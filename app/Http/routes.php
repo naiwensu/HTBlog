@@ -48,11 +48,20 @@ Route::resource('diary', 'DiaryController');
 Route::resource('photo', 'PhotoController');
 
 /**
- * 测试
- */
-Route::get('/test', 'TestController@index');
-
-/**
  * 站长统计
  */
 Route::get('/statistics', 'StatisticsController@index');
+
+/**
+ * 图片上传
+ */
+Route::post('/fileUpload', 'MediaController@upload');
+
+/**
+ * 测试
+ */
+Route::get('/test', 'TestController@index');
+Route::post('/diary/ajax_upload', function () {
+    echo 1;
+});
+

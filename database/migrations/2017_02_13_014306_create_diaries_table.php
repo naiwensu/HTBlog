@@ -14,10 +14,13 @@ class CreateDiariesTable extends Migration
     {
         Schema::create('diaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->string('content');
-            $table->integer('media_id');
+            $table->string('media_mid');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('media_mid')->references('mid')->on('medium');
         });
     }
 

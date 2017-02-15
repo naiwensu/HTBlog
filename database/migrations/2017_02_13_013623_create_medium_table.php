@@ -14,9 +14,9 @@ class CreateMediumTable extends Migration
     {
         Schema::create('medium', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('mid');
             $table->string('type');
             $table->string('path');
-
             $table->timestamps();
         });
     }

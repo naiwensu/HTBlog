@@ -13,5 +13,6 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         // 这里放的url可以不通过csrf_token验证
+        // 'fileUpload'
     ];
 }

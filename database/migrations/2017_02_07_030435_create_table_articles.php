@@ -21,8 +21,8 @@ class CreateTableArticles extends Migration
             $table->text('content', 10000);
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('media_id')->references('id')->on('medium');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('media_id')->references('id')->on('medium');
         });
     }
 

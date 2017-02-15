@@ -19,8 +19,8 @@ class CreateDiariesTable extends Migration
             $table->string('media_mid');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('media_mid')->references('mid')->on('medium');
+            // $table->foreign('user_id')->references('id')->on('users');
+            // $table->foreign('media_mid')->references('mid')->on('medium');
         });
     }
 

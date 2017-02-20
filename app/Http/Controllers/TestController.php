@@ -16,7 +16,11 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
-        dd(session()->get('user')->id);
+        $a = array(
+            'a',
+            'b'
+        );
+        echo count($a);
     }
 
     /**

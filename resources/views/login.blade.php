@@ -9,6 +9,13 @@
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-12 column">
+                @if($errors->any())
+                    <ul class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
                 <form role="form" method="post" action="/login">
                     {{ csrf_field() }}
                     <div class="form-group">

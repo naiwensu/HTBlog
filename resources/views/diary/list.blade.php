@@ -9,6 +9,8 @@
     <div class="container">
         @foreach ($diaries as $diary)
             <h1>日记内容：{{ $diary->content }}</h1>
+            <br>
+            <h2>{{ $diary->media }}</h2>
             <hr>
         @endforeach
     </div>

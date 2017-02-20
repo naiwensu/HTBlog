@@ -14,43 +14,32 @@
 /**
  * 用户
  */
-Route::get('/', 'ArticleController@index');
-Route::get('/register', function () {
-    return view('register');
-});
-Route::get('/login', function () {
-    return view('login');
-});
-Route::post('/login', 'UserController@login');
-Route::get('/personal', 'UserController@personal');
+Route::get('/', 'UserController@index');
+Route::get('/register', 'UserController@register');
+Route::post('/register', 'UserController@doregist');
+Route::get('/login', 'UserController@login');
+Route::post('/login', 'UserController@dologin');
 Route::get('/logout', 'UserController@logout');
 
 /**
  * 文章
  */
-Route::get('/article', function () {
-    return view('article');
-});
-Route::resource('article' , 'ArticleController');
-Route::get('/article/manage', 'ArticleController@manage');
+//Route::get('/article/create', 'ArticleController@create');
 
 /**
  * 日记
  */
-Route::get('/diary', function () {
-    return view('diary');
-});
-Route::resource('diary', 'DiaryController');
+Route::resource('/diary', 'DiaryController');
 
 /**
  * 照片墙
  */
-Route::resource('photo', 'PhotoController');
+//Route::resource('photo', 'PhotoController');
 
 /**
  * 站长统计
  */
-Route::get('/statistics', 'StatisticsController@index');
+//Route::get('/statistics', 'StatisticsController@index');
 
 /**
  * 图片上传
@@ -60,8 +49,8 @@ Route::post('/fileUpload', 'MediaController@upload');
 /**
  * 测试
  */
-Route::get('/test', 'TestController@index');
-Route::post('/diary/ajax_upload', function () {
-    echo 1;
-});
+//Route::get('/test', 'TestController@index');
+//Route::post('/diary/ajax_upload', function () {
+//    echo 1;
+//});
 

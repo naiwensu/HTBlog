@@ -16,7 +16,7 @@ class UserTableSeeder extends Seeder
             'realname' => 'aaa',
             'email' => 'aaa@qq.com',
             'intro' => 'i am phper',
-            'media_id' => 1,
+            'picture' => 'aaa.jpg',
             'password' => \Illuminate\Support\Facades\Crypt::encrypt("12345678"),
             'role' => 1,
             'created_at' => date('Y-m-d H:i:s', strtotime('now')),

@@ -64,7 +64,7 @@ class UserController extends Controller
     public function logout()
     {
         session()->set('user', null);
-        return Redirect::to('');
+        return Redirect::to('/');
     }
 
 }

@@ -7,13 +7,37 @@
 @section('container')
     @include('includes.nav')
     <div class="container">
+        @if(session('user')->role < 10)
+            <div class="media"><a class="btn btn-primary pull-right" href="/diary/create"><i class="glyphicon glyphicon-plus"></i>添加日记 </a></div>
+        @endif
         @foreach ($diaries as $diary)
-            <h1>日记内容：{{ $diary->content }}</h1>
+            <div class="media">
+                <div class="media-left">
+                    <a href="#">
+                        <img class="media-object img-circle .img-thumbnail .img-responsive" src="/uploads/{{ $diary->user->picture }}" width="50px" height="50px" alt="...">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{ $diary->user->nickname }}</h4>
+                    {{ $diary->content }}
+                    <br>
+                    <small>{{ $diary->created_at }}</small>
+                </div>
+            </div>
             <br>
-            <h2>{{ $diary->media }}</h2>
+            <div class="row">
+                @foreach($diary->medium as $media)
+                    <div class="col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                            <img src="/uploads/{{ $media->path }}" alt="...">
+                        </a>
+                    </div>
+                @endforeach
+            </div>
             <hr>
         @endforeach
     </div>
+
     <nav style="text-align: center">
         {!! $diaries->render() !!}
     </nav>

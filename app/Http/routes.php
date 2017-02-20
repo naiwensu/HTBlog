@@ -14,7 +14,7 @@
 /**
  * 用户
  */
-Route::get('/', 'UserController@index');
+Route::get('/', 'ArticleController@index');
 Route::get('/register', 'UserController@register');
 Route::post('/register', 'UserController@doregist');
 Route::get('/login', 'UserController@login');
@@ -24,7 +24,7 @@ Route::get('/logout', 'UserController@logout');
 /**
  * 文章
  */
-//Route::get('/article/create', 'ArticleController@create');
+Route::resource('/article', 'ArticleController');
 
 /**
  * 日记
@@ -45,6 +45,19 @@ Route::resource('/diary', 'DiaryController');
  * 图片上传
  */
 Route::post('/fileUpload', 'MediaController@upload');
+
+/**
+ * 暂定
+ */
+Route::get('/visit', function () {
+    echo 1;
+});
+Route::get('/photo', function () {
+    echo 1;
+});
+Route::get('/personal', function () {
+    echo 1;
+});
 
 /**
  * 测试

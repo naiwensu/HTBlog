@@ -6,7 +6,7 @@
 
 @section('my-css')
     <link rel="stylesheet" href="/css/ssi-uploader.css">
-    <link rel="stylesheet" href="/css/style.css">
+    {{--<link rel="stylesheet" href="/css/style.css">--}}
     <style>
         #diary {
             border: 1px solid lightgrey;
@@ -33,7 +33,6 @@
                 </div>
                 <hr>
                 <button type="button" id="submit" class="btn btn-block btn-primary">发表</button>
-
             </div>
         </div>
     </div>
@@ -54,7 +53,8 @@
     </script>
     <script>
         $('#submit').on('click', function () {
-
+            var content = $('#diary').val();
+            console.log(content);
         });
     </script>
 @endsection

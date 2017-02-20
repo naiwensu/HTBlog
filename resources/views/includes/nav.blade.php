@@ -15,39 +15,31 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="{{ Request::getRequestUri() == '/' ? 'active' : ''  }}"><a href="/">首页 <span class="sr-only">(current)</span></a>
-                </li>
-                @if(session()->get('user'))
-                    @if(session()->get('user')->role < 10)
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">文章 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/article/create">添加文章</a></li>
-                                <li><a href="/article/manage">管理文章</a></li>
-                            </ul>
+                <li class="{{ Request::getRequestUri() == '/' ? 'active' : ''  }}"><a href="/">首页 <span
+                                class="sr-only">(current)</span></a></li>
+                @if(session('user'))
+                    @if(session('user')->role<10)
+                        <li class="{{ Request::getRequestUri() == '/visit' ? 'active' : ''  }}"><a
+                                    href="/visit">访问日志 </a>
                         </li>
-                        <li><a href="/statistics">站长统计</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">日记 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/diary/create">添加日记</a></li>
-                                <li><a href="/diary/manage">管理日记</a></li>
-                            </ul>
+                        <li class="{{ Request::getRequestUri() == '/article' ? 'active' : ''  }}"><a href="/">文章 </a>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                               aria-expanded="false">照片墙 <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/photo/create">添加照片</a></li>
-                                <li><a href="/photo/manage">管理照片</a></li>
-                            </ul>
+                        <li class="{{ Request::getRequestUri() == '/diary' ? 'active' : ''  }}"><a href="/diary">日记 </a>
+                        </li>
+                        <li class="{{ Request::getRequestUri() == '/photo' ? 'active' : ''  }}"><a
+                                    href="/photo">照片墙 </a>
                         </li>
                     @else
+                        <li class="{{ Request::getRequestUri() == '/article' ? 'active' : ''  }}"><a href="/">文章 </a>
+                        </li>
+                        <li class="{{ Request::getRequestUri() == '/diary' ? 'active' : ''  }}"><a href="/diary">日记 </a>
+                        </li>
+                        <li class="{{ Request::getRequestUri() == '/photo' ? 'active' : ''  }}"><a
+                                    href="/photo">照片墙 </a>
+                        </li>
                     @endif
                 @else
-                    <li><a href="/">文章</a></li>
+                    <li class="{{ Request::getRequestUri() == '/article' ? 'active' : ''  }}"><a href="/">文章 </a>
                 @endif
             </ul>
             <form class="navbar-form navbar-left">

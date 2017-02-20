@@ -15,10 +15,10 @@ class DiaryController extends Controller
 
     public function index()
     {
-        $diaries = DB::table('diaries')->paginate(5);
+        $diaries = Diary::paginate(5);
         return view('diary.list', ['diaries' => $diaries]);
-        // return $this->hasMany('App\Media');
-        // return view('diary.create');
+//        $diary = Diary::find(1)->user;
+//        dd($diary);
     }
 
     public function create(Request $request)

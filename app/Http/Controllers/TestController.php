@@ -17,6 +17,7 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
+        Cache::flush();
         dd(Cache::get('diary_id'));
 
     }

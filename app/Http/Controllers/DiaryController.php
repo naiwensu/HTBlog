@@ -28,14 +28,15 @@ class DiaryController extends Controller
     public function store(Request $request)
     {
         $content = $request->get('content');
-        $diary_id = Cache::pull('diary_id');
-        $diary = Diary::first($diary_id);
+        $diary_id = Cache::get('diary_id');
+        $diary = Diary::find($diary_id);
         if(!$diary) {
             return ['errCode' => 1, 'info' => '发表失败'];
         }
         $diary->content = $content;
         $bool = $diary->save();
         if($bool) {
+            Cache::pull('diary_id');
             return ['errCode' => 0, 'info' => '发表成功'];
         }
     }

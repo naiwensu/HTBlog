@@ -67,4 +67,15 @@ class UserController extends Controller
         return Redirect::to('/');
     }
 
+    public function show()
+    {
+        $user = User::find(session('user')->id);
+        return view('user.show', ['user' => $user]);
+    }
+
+    public function password()
+    {
+        return view('user.password');
+    }
+
 }

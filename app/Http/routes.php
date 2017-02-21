@@ -11,60 +11,25 @@
 |
 */
 
-/**
- * 用户
- */
+
 Route::get('/', 'ArticleController@index');
 Route::get('/register', 'UserController@register');
 Route::post('/register', 'UserController@doregist');
 Route::get('/login', 'UserController@login');
 Route::post('/login', 'UserController@dologin');
-Route::get('/logout', 'UserController@logout');
-
-/**
- * 文章
- */
 Route::resource('/article', 'ArticleController');
 
-/**
- * 日记
- */
+Route::get('/logout', 'UserController@logout');
+
 Route::resource('/diary', 'DiaryController');
-
-/**
- * 照片墙
- */
-//Route::resource('photo', 'PhotoController');
-
-/**
- * 站长统计
- */
-//Route::get('/statistics', 'StatisticsController@index');
-
-/**
- * 图片上传
- */
 Route::post('/fileUpload', 'MediaController@upload');
-
-/**
- * 暂定
- */
-Route::get('/visit', function () {
-    echo 1;
-});
-Route::get('/photo', function () {
-    echo 1;
-});
-Route::get('/personal', function () {
-    echo 1;
-});
 Route::resource('/media', 'MediaController');
+Route::get('/visit' , 'VisitController@index');
 
-/**
- * 测试
- */
-Route::get('/test', 'TestController@index');
-//Route::post('/diary/ajax_upload', function () {
-//    echo 1;
-//});
+Route::get('/personal', 'UserController@show');
 
+Route::get('/password', 'UserController@password');
+
+Route::get('/test', ['middleware' => 'loginrequire', function() {
+    echo 1;
+}]);

@@ -10,6 +10,7 @@
         @if(session('user')->role < 10)
             <div class="media"><a class="btn btn-primary pull-right" href="/diary/create"><i class="glyphicon glyphicon-plus"></i>添加日记 </a></div>
         @endif
+        <hr>
         @foreach ($diaries as $diary)
             <div class="media">
                 <div class="media-left">

@@ -20,7 +20,6 @@
     <div class="container">
         <div class="row clearfix">
             <div class="col-md-12 column">
-                {{ csrf_field() }}
                 <div class="form-group">
                     <label for="content">发生了什么事，与大家分享吧</label>
                     <br>
@@ -51,31 +50,23 @@
 @endsection
 
 @section('my-js')
-    {{--<script src="/js/ssi-uploader.js"></script>--}}
-    {{--<script type="text/javascript">--}}
-        {{--var id = Date.parse(new Date())+parseInt(Math.random() * 100000).toString();--}}
-        {{--$('#ssi-upload').ssi_uploader({--}}
-            {{--url: '/fileUpload',--}}
-            {{--data: {--}}
-                {{--_token: "{{ csrf_token() }}",--}}
-                {{--reference: 'diary',--}}
-                {{--id: id--}}
-            {{--},--}}
-            {{--maxFileSize: 6,--}}
-            {{--allowed: ['jpg', 'gif', 'txt', 'png', 'pdf']--}}
-        {{--});--}}
-        {{--$('#submit').on('click', function () {--}}
-            {{--var content = $('#diary').val();--}}
-            {{--$.ajax({--}}
-                {{--type : "POST",  //提交方式--}}
-                {{--url : "/diary",//路径--}}
-                {{--data : "_token={{ csrf_token() }}&id="+id+"content="+content,--}}
-                {{--success : function(result) {//返回数据根据结果进行相应的处理--}}
-                    {{--console.log(result);--}}
-                {{--}--}}
-            {{--});--}}
-        {{--});--}}
-    {{--</script>--}}
+    <script type="text/javascript">
+        $('#submit').on('click', function () {
+            var content = $('#diary').val();
+            $.ajax({
+                type: "POST",  //提交方式
+                url: "/diary",//路径
+                data: "_token={{ csrf_token() }}&content=" + content,
+                success: function (result) {//返回数据根据结果进行相应的处理
+                    if(result.errCode = '0') {
+                        window.location.href = '/diary';
+                    } else {
+                        window.location.href = '/diary/create';
+                    }
+                }
+            });
+        });
+    </script>
     <script src="/js/webuploader.js"></script>
     <script src="/js/upload.js"></script>
 @endsection

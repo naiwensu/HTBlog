@@ -19,15 +19,9 @@
                                 class="sr-only">(current)</span></a></li>
                 @if(session('user'))
                     @if(session('user')->role<10)
-                        <li class="{{ Request::getRequestUri() == '/visit' ? 'active' : ''  }}"><a
-                                    href="/visit">访问日志 </a>
-                        </li>
                         <li class="{{ Request::getRequestUri() == '/article' ? 'active' : ''  }}"><a href="/">文章 </a>
                         </li>
                         <li class="{{ Request::getRequestUri() == '/diary' ? 'active' : ''  }}"><a href="/diary">日记 </a>
-                        </li>
-                        {{--<li class="{{ Request::getRequestUri() == '/photo' ? 'active' : ''  }}"><a--}}
-                                    {{--href="/photo">照片墙 </a>--}}
                         </li>
                     @else
                         <li class="{{ Request::getRequestUri() == '/article' ? 'active' : ''  }}"><a href="/">文章 </a>
@@ -55,9 +49,9 @@
                            aria-expanded="false">欢迎您！{{ session()->get('user')->nickname }} <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/personal">个人中心</a></li>
-                            <li><a href="#">修改密码</a></li>
+                            <li><a href="/password">修改密码</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="/logout">登出</a></li>
+                            <li><a href="/logout">退出</a></li>
                         </ul>
                     </li>
                 @else

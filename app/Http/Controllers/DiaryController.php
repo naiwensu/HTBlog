@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -15,10 +16,8 @@ class DiaryController extends Controller
 
     public function index()
     {
-        $diaries = Diary::paginate(5);
+        $diaries = Diary::orderBy('created_at', 'DESC')->paginate(5);
         return view('diary.list', ['diaries' => $diaries]);
-//        $diary = Diary::find(1)->user;
-//        dd($diary);
     }
 
     public function create(Request $request)
@@ -28,9 +27,17 @@ class DiaryController extends Controller
 
     public function store(Request $request)
     {
-        $id = $request->get('id');
         $content = $request->get('content');
-
+        $diary_id = Cache::pull('diary_id');
+        $diary = Diary::first($diary_id);
+        if(!$diary) {
+            return ['errCode' => 1, 'info' => '发表失败'];
+        }
+        $diary->content = $content;
+        $bool = $diary->save();
+        if($bool) {
+            return ['errCode' => 0, 'info' => '发表成功'];
+        }
     }
 
 }

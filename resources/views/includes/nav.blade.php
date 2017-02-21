@@ -26,17 +26,17 @@
                         </li>
                         <li class="{{ Request::getRequestUri() == '/diary' ? 'active' : ''  }}"><a href="/diary">日记 </a>
                         </li>
-                        <li class="{{ Request::getRequestUri() == '/photo' ? 'active' : ''  }}"><a
-                                    href="/photo">照片墙 </a>
+                        {{--<li class="{{ Request::getRequestUri() == '/photo' ? 'active' : ''  }}"><a--}}
+                                    {{--href="/photo">照片墙 </a>--}}
                         </li>
                     @else
                         <li class="{{ Request::getRequestUri() == '/article' ? 'active' : ''  }}"><a href="/">文章 </a>
                         </li>
                         <li class="{{ Request::getRequestUri() == '/diary' ? 'active' : ''  }}"><a href="/diary">日记 </a>
                         </li>
-                        <li class="{{ Request::getRequestUri() == '/photo' ? 'active' : ''  }}"><a
-                                    href="/photo">照片墙 </a>
-                        </li>
+                        {{--<li class="{{ Request::getRequestUri() == '/photo' ? 'active' : ''  }}"><a--}}
+                                    {{--href="/photo">照片墙 </a>--}}
+                        {{--</li>--}}
                     @endif
                 @else
                     <li class="{{ Request::getRequestUri() == '/article' ? 'active' : ''  }}"><a href="/">文章 </a>

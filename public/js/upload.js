@@ -148,6 +148,7 @@
 
             formData: {
                 uid: timestamp + Math.random(),
+                reference: 'diary'
             },
             dnd: '#dndArea',
             paste: '#uploader',

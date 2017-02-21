@@ -58,11 +58,12 @@ Route::get('/photo', function () {
 Route::get('/personal', function () {
     echo 1;
 });
+Route::resource('/media', 'MediaController');
 
 /**
  * 测试
  */
-//Route::get('/test', 'TestController@index');
+Route::get('/test', 'TestController@index');
 //Route::post('/diary/ajax_upload', function () {
 //    echo 1;
 //});

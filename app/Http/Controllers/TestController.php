@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Cache;
 
 class TestController extends Controller
 {
@@ -16,11 +17,8 @@ class TestController extends Controller
      */
     public function index(Request $request)
     {
-        $a = array(
-            'a',
-            'b'
-        );
-        echo count($a);
+        dd(Cache::get('diary_id'));
+
     }
 
     /**
